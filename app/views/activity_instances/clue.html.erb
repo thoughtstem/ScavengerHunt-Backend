@@ -1,0 +1,19 @@
+<% if @activity_instance.last_submission_for(@current_team).accepted %>
+  <% if @activity_instance.next_activity %>
+    <%= image_tag @activity_instance.next_activity.image.url %>
+  <% else %>
+    <h1>You're done!  Return to base!</h1>
+  <% end %>
+<% else %>
+  The clue will be unlocked when your answer is accepted
+<% end %>
+
+<script>
+  //polling happens inside the iframe
+
+  window.onload = function(){
+    setInterval(function(){
+      window.location.reload()
+    }, 10000);
+  }
+</script>

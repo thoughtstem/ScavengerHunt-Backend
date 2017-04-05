@@ -1,0 +1,34 @@
+<style>
+  .hidden{
+    display: none !important;
+  }
+</style>
+
+<img src="" id="image_preview" width="250"></img>
+<%= form_for [@activity_instance,@submission] do |f| %>
+
+  <div class="form-group">
+    <%= f.file_field :image, onChange: "displayPreview(this)", id: "image_input", accept:"image/*;capture=camera", class: 'form-control'%>
+  </div>
+
+  <%= f.submit 'Submit', id: "submit_button", class: 'btn btn-primary hidden' %>
+<% end %>
+
+<script>
+  function displayPreview(){
+
+    var input = document.getElementById('image_input')
+    if(input["files"] && input["files"][0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+          document.getElementById('image_preview')["src"] = e.target["result"];
+      }
+
+      reader.readAsDataURL(input["files"][0]);
+
+      document.getElementById('submit_button').classList.remove("hidden")
+      document.getElementById('image_input').classList.add("hidden")
+    }
+  }
+</script>

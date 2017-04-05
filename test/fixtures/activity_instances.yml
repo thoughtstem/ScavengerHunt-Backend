@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  prompt: MyText
+  clue: MyText
+  activity_id: 
+  game_id: 
+
+two:
+  name: MyString
+  prompt: MyText
+  clue: MyText
+  activity_id: 
+  game_id: 

@@ -1,0 +1,8 @@
+<div style="text-align: center; padding: 20px;">
+  <h1 >Thanks for signing in!</h1>
+
+  <h2>Your team name is: "<span style="color: green"><%= @current_team.name %></span>"</h2>
+
+  <h3>Your clue is...</h3>
+  <img style="width: 300px" src="<%= @current_team.next_activity_instance.image.url%>"></img>
+</div>

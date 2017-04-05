@@ -1,0 +1,32 @@
+
+<div style="font-size: 15pt;">
+  <% if @submission.accepted %>
+    <br/>Status: <span style="color: green">Accepted</span> (Click "Next")
+  <% elsif @submission.rejected %>
+    <br/>Status: <span style="color: red">Not quite</span>
+    <br/><%= link_to 'Withdraw submission', [@activity_instance, @submission],
+                data: {:confirm => 'Are you sure?'}, :method => :delete %>
+  <% else %>
+    <br/>Status: <span style="color: orange">Pending</span>
+    <img style="position: relative; top: 2px;" src="<%= asset_path "loader.gif" %>"></img>
+    <br/><%= link_to 'Withdraw submission', [@activity_instance, @submission],
+                data: {:confirm => 'Are you sure?'}, :method => :delete %>
+  <% end %>
+
+  <p><%= @submission.notes %></p>
+  <br/>
+  <img src="<%= @submission.image.url %>" width="250"></img>
+</div>
+
+
+
+
+<script>
+  //polling happens inside the iframe
+
+  window.onload = function(){
+    setInterval(function(){
+      window.location.reload()
+    }, 10000);
+  }
+</script>

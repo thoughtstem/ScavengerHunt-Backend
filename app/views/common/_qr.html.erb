@@ -1,0 +1,7 @@
+
+
+<% qr = RQRCode::QRCode.new(url) %>
+
+<a href="<%= url %>">
+  <%= raw qr.as_svg module_size: 5 %>
+</a>
