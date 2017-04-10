@@ -2,7 +2,7 @@
 <% host = request.url.match(/(http:\/\/.*)\/activity_instances\//)[1] %>
 
 <% if !@activity_instance.last_submission_for(@current_team) %>
-  <iframe src="<%= @activity_instance.prompt_url %>&backend_resource=<%= host + "/activity_instances/#{@activity_instance.id}" %>&player_names=<%= @current_team.names.join(",") %>" style="width: 100vw; height: 100vh;"></iframe>
+  <iframe src="<%= @activity_instance.prompt_url %>&backend_resource=<%= host + "/activity_instances/#{@activity_instance.id}" %>&player_names=<%= @current_team.first_names.join(",") %>" style="width: 100vw; height: 100vh;"></iframe>
 <% else %>
   <iframe src="<%= @activity_instance.prompt_url %>&backend_resource=<%= host + "/activity_instances/#{@activity_instance.id}" %>&player_names=<%= @current_team.names.join(",") %>&accepted=<%= @activity_instance.last_submission_for(@current_team).accepted %>&rejected=<%= @activity_instance.last_submission_for(@current_team).rejected %>" style="width: 100vw; height: 100vh;"></iframe>
 <% end %>

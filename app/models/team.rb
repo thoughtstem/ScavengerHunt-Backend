@@ -8,6 +8,10 @@ class Team < ActiveRecord::Base
     players.map(&:name)
   end
 
+  def first_names
+    players.map(&:first_name)
+  end
+
   def number_of_players
     players.size
   end

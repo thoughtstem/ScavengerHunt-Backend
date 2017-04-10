@@ -24,7 +24,7 @@ ActiveAdmin.register Submission do
       row :notes
 
       row :image do |ad|
-        image_tag ad.image.url
+        image_tag ad.image.url, width: "500"
       end
     end
 
