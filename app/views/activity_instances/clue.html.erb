@@ -1,6 +1,8 @@
 <% if @activity_instance.last_submission_for(@current_team).accepted %>
   <% if @activity_instance.next_activity %>
     <%= image_tag @activity_instance.next_activity.image.url %>
+
+    <%= render partial: "/activity_instances/clue_map", locals: {current_team: @current_team, activity_instance: @activity_instance.next_activity} %>
   <% else %>
     <h1>You're done!  Return to base!</h1>
   <% end %>
@@ -8,6 +10,8 @@
   The clue will be unlocked when your answer is accepted
 <% end %>
 
+
+<% if !@activity_instance.last_submission_for(@current_team).accepted %>
 <script>
   //polling happens inside the iframe
 
@@ -17,3 +21,4 @@
     }, 10000);
   }
 </script>
+<% end %>
